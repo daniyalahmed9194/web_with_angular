@@ -1,0 +1,26 @@
+<!-- <ng-container *ngIf="isAuthorized; else unauthorized">
+    <h1>Authorized User</h1>
+</ng-container>
+<ng-template #unauthorized>
+    <h1>Unauthorized User</h1>
+</ng-template> -->
+
+
+<!-- <ng-container *ngIf="listItems.length > 0  ; else noItems">
+    <ul>
+        <li *ngFor="let item of listItems">{{item}}</li>
+    </ul>
+</ng-container>
+<ng-template #noItems>
+    <h1>No items found</h1>
+</ng-template> -->
+
+<ng-container >
+    <input type="text" [(ngModel)]="Name" placeholder="Enter Name here" (input)="onNameEntered($event)"/>
+</ng-container>
+<ng-container *ngIf="isNameEntered else notEntered">
+<h3></h3>
+</ng-container>
+<ng-template #notEntered>
+    <h3>Please Enter Your Name</h3>
+</ng-template>

@@ -1,0 +1,7 @@
+<div>
+    <input type="text" (input)="isElegible()" [(ngModel)]="age" >
+    <div [ngSwitch] ="eligibility">
+    <p *ngSwitchCase="true">You are elegilbe</p>
+    <p *ngSwitchDefault> Not elegible</p>
+    </div>
+</div>
