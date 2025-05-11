@@ -1,0 +1,65 @@
+<h1>Portfolio</h1>
+<ng-container *ngIf="!submitted; else preview">
+  <h2>Personal Information</h2>
+  <form>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" [(ngModel)]="nm"/>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" [(ngModel)]="em" />
+    </div>
+    <div>
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" id="phone " [(ngModel)]="ph" />
+    </div>
+    <div>
+      <label for="address">Address</label>
+      <input type="text" name="address" id="address" [(ngModel)]="ad" />
+    </div>
+  </form>
+  <h2>Qualifications</h2>
+  <div *ngFor="let q of qualifications let i = index">
+    <h3>Qualification {{i+1}}</h3>
+    <form>
+      <div>
+        <label for="school">School/College</label>
+        <input type="text" name="school" id="school" [(ngModel)]="q.school" />
+      </div>
+      <div>
+        <label for="degree">Degree</label>
+        <input type="text" name="degree" id="degree" [(ngModel)]="q.degree"/>
+      </div>
+      <div>
+        <label for="year">Year</label>
+        <input type="text" name="year" id="year" [(ngModel)]="q.year" />
+      </div>
+    </form>
+  </div>
+  <div class="btn-container">
+    <button (click)="addQuallification()">Add Qualifications</button>
+    <button type="submit" (click)="onSubmit()">Submit</button>
+  </div>
+</ng-container>
+
+<ng-template #preview>
+  <div class="preview-container">
+    <div>
+      <p>{{nm}}</p>
+      <p>Email: {{em}}</p>
+      <p>Phone: {{ph}}</p>
+      <p>Address: {{ad}}</p>
+    </div>
+    <div >
+      <h3>Qualifications</h3>
+      <div *ngFor="let q of qualifications">
+        <h5>School/College: {{q.school}}</h5>
+        <h5>Degree: {{q.degree}}</h5>
+      </div>
+      <div>
+        <button class="btn-edit" (click)="onEdit()">Edit</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
